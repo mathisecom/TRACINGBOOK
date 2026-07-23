@@ -850,6 +850,32 @@
         "text_color": ""
       }
     },
+    "rich_text_eNac9a": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fjiAjp": {
+          "type": "heading",
+          "settings": {
+            "text": "+3,000 Parents Satisfaits",
+            "heading_tag": "h2",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_fjiAjp"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "testimonials_PRrRef": {
       "type": "testimonials",
       "blocks": {
@@ -989,6 +1015,7 @@
   },
   "order": [
     "featured_product_jk3Naf",
+    "rich_text_eNac9a",
     "grilleicons_yBU4wY",
     "marqueebenefice_HNWWY3",
     "imagetextecta_FdtqzB",
