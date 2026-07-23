@@ -1331,29 +1331,37 @@
         "166442457738b23caf-0": {
           "type": "item",
           "settings": {
-            "title": "Do you ship overseas?",
-            "content": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "À partir de quel âge ce cahier est-il recommandé ?",
+            "content": "<p>Le cahier convient aux enfants dès <strong>3 ans</strong>, sous la surveillance d’un adulte. Les exercices sont conçus pour accompagner progressivement l’apprentissage du tracé, des formes, des chiffres et des lettres.</p>"
           }
         },
         "166442457738b23caf-1": {
           "type": "item",
           "settings": {
-            "title": "How long will it take to get my orders?",
-            "content": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "Comment les pages peuvent-elles être réutilisées ?",
+            "content": "<p>L’enfant écrit directement sur les pages avec les stylos fournis. Il suffit ensuite de les effacer avec l’accessoire prévu afin de recommencer les exercices autant de fois que nécessaire.</p>"
           }
         },
         "166442457738b23caf-2": {
           "type": "item",
           "settings": {
-            "title": "Any question?",
-            "content": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "title": "Quels apprentissages ce cahier permet-il de développer ?",
+            "content": "<p>Il aide notamment à améliorer la <strong>motricité fine</strong>, la coordination œil-main, le contrôle du stylo, la concentration et l’autonomie. Les activités encouragent également la créativité et la confiance en soi.</p>"
+          }
+        },
+        "item_ghdXQf": {
+          "type": "item",
+          "settings": {
+            "title": "Que contient le pack ?",
+            "content": "<p>Le pack comprend un cahier de <strong>64 pages</strong>, des stylos adaptés aux exercices, des accessoires de prise en main et un outil d’effacement. Le contenu exact peut varier selon l’option choisie.</p>"
           }
         }
       },
       "block_order": [
         "166442457738b23caf-0",
         "166442457738b23caf-1",
-        "166442457738b23caf-2"
+        "166442457738b23caf-2",
+        "item_ghdXQf"
       ],
       "settings": {
         "full_width": true,
