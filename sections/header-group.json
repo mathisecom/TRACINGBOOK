@@ -17,13 +17,21 @@
         "message": {
           "type": "message",
           "settings": {
-            "text": "Announce something here",
+            "text": "LIVRAISON OFFERTE EN FRANCE",
+            "url": ""
+          }
+        },
+        "message_AcF3My": {
+          "type": "message",
+          "settings": {
+            "text": "SOLDES D'ÉTÉ :",
             "url": ""
           }
         }
       },
       "block_order": [
-        "message"
+        "message",
+        "message_AcF3My"
       ],
       "settings": {
         "enable_sticky": false,
@@ -32,7 +40,7 @@
         "text_size": "text-xxs",
         "navigation_mode": "arrows",
         "scrolling_speed": 10,
-        "background": "#75AAE8",
+        "background": "#75aae8",
         "background_gradient": "",
         "text_color": "#ffffff"
       }
