@@ -49,7 +49,7 @@
           "settings": {
             "show_payment_button": false,
             "show_gift_card_recipient": false,
-            "atc_button_background": "#399E5A",
+            "atc_button_background": "#399e5a",
             "atc_button_text_color": "",
             "payment_button_background": "",
             "payment_button_text_color": ""
@@ -109,6 +109,102 @@
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
+      }
+    },
+    "grilleicons_yBU4wY": {
+      "type": "grilleicons",
+      "blocks": {
+        "icon_text_TF7GtT": {
+          "type": "icon_text",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-06-18_at_11.09.25_PM_qbknbr.png",
+            "title": "Nom personnalisé",
+            "text": "",
+            "link": "",
+            "open_new_tab": false,
+            "alt_text": ""
+          }
+        },
+        "icon_text_Yfq9U9": {
+          "type": "icon_text",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-06-18_at_11.09.32_PM_z7xu1t.png",
+            "title": "Traçage des lettres",
+            "text": "",
+            "link": "",
+            "open_new_tab": false,
+            "alt_text": ""
+          }
+        },
+        "icon_text_eHwXTp": {
+          "type": "icon_text",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-06-18_at_11.12.06_PM_df89d4.png",
+            "title": "Apprentissage des nombres",
+            "text": "",
+            "link": "",
+            "open_new_tab": false,
+            "alt_text": ""
+          }
+        },
+        "icon_text_FRigJP": {
+          "type": "icon_text",
+          "settings": {
+            "icon": "shopify://shop_images/Screenshot_2026-06-18_at_11.09.36_PM_syni4c.png",
+            "title": "Apprentissage des formes",
+            "text": "",
+            "link": "",
+            "open_new_tab": false,
+            "alt_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_text_TF7GtT",
+        "icon_text_Yfq9U9",
+        "icon_text_eHwXTp",
+        "icon_text_FRigJP"
+      ],
+      "name": "Icônes avec texte",
+      "settings": {
+        "heading": "",
+        "intro": "",
+        "heading_alignment": "center",
+        "heading_size": 32,
+        "heading_size_mobile": 26,
+        "max_width": 1400,
+        "columns_desktop": 4,
+        "mobile_single_column": false,
+        "column_gap": 48,
+        "row_gap": 32,
+        "column_gap_mobile": 16,
+        "row_gap_mobile": 24,
+        "icon_size": 110,
+        "icon_size_mobile": 80,
+        "title_size": 17,
+        "title_size_mobile": 14,
+        "title_weight": "700",
+        "subtext_size": 14,
+        "subtext_size_mobile": 12,
+        "item_padding": 12,
+        "item_padding_mobile": 8,
+        "enable_card_background": false,
+        "card_background_color": "#ffffff",
+        "enable_border": false,
+        "border_width": 1,
+        "border_color": "#e5e5e5",
+        "border_radius": 0,
+        "enable_shadow": false,
+        "enable_hover": false,
+        "background_color": "#ffffff",
+        "heading_color": "#1f1f1f",
+        "text_color": "#1f1f1f",
+        "side_padding": 40,
+        "side_padding_mobile": 16,
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
       }
     },
     "rich_text_q3FNqd": {
@@ -252,6 +348,7 @@
   },
   "order": [
     "featured_product_jk3Naf",
+    "grilleicons_yBU4wY",
     "rich_text_q3FNqd",
     "testimonials_PRrRef",
     "faq"
