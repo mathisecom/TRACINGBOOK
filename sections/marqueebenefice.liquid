@@ -1,0 +1,472 @@
+{%- if section.settings.use_grandstander -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700&display=swap" rel="stylesheet">
+{%- endif -%}
+
+<section
+  class="magic-marquee magic-marquee--{{ section.id }}"
+  aria-label="{{ section.settings.aria_label | escape }}"
+>
+  <div class="magic-marquee__viewport">
+    <div class="magic-marquee__track">
+      {%- for copy in (1..2) -%}
+        <div
+          class="magic-marquee__group"
+          {% if copy == 2 %}aria-hidden="true"{% endif %}
+        >
+          {%- for block in section.blocks -%}
+            <div class="magic-marquee__item" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                <span class="magic-marquee__icon" aria-hidden="true">
+                  {{ block.settings.icon }}
+                </span>
+              {%- endif -%}
+
+              <span>{{ block.settings.text | escape }}</span>
+            </div>
+
+            {%- unless forloop.last -%}
+              <span class="magic-marquee__separator" aria-hidden="true">
+                {{ section.settings.separator }}
+              </span>
+            {%- endunless -%}
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .magic-marquee--{{ section.id }} {
+    --marquee-bg: {{ section.settings.background_color }};
+    --marquee-color: {{ section.settings.text_color }};
+    --marquee-separator-color: {{ section.settings.separator_color }};
+    --marquee-gap: {{ section.settings.item_gap }}px;
+    --marquee-duration: {{ section.settings.speed }}s;
+
+    width: 100%;
+    overflow: hidden;
+    background: var(--marquee-bg);
+    padding: {{ section.settings.padding_vertical }}px 0;
+  }
+
+  .magic-marquee--{{ section.id }} *,
+  .magic-marquee--{{ section.id }} *::before,
+  .magic-marquee--{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  {%- if section.settings.use_grandstander -%}
+    .magic-marquee--{{ section.id }} {
+      font-family: "Grandstander", sans-serif;
+    }
+  {%- endif -%}
+
+  .magic-marquee--{{ section.id }} .magic-marquee__viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .magic-marquee--{{ section.id }} .magic-marquee__track {
+    display: flex;
+    width: max-content;
+    min-width: 200%;
+    will-change: transform;
+    animation: magic-marquee-{{ section.id }} var(--marquee-duration) linear infinite;
+  }
+
+  .magic-marquee--{{ section.id }} .magic-marquee__group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--marquee-gap);
+    min-width: 50%;
+    padding-right: var(--marquee-gap);
+  }
+
+  .magic-marquee--{{ section.id }} .magic-marquee__item {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: {{ section.settings.icon_gap }}px;
+    color: var(--marquee-color);
+    font-size: {{ section.settings.text_size }}px;
+    font-weight: {{ section.settings.text_weight }};
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .magic-marquee--{{ section.id }} .magic-marquee__icon {
+    font-size: {{ section.settings.icon_size }}px;
+    line-height: 1;
+  }
+
+  .magic-marquee--{{ section.id }} .magic-marquee__separator {
+    flex: 0 0 auto;
+    color: var(--marquee-separator-color);
+    font-size: {{ section.settings.separator_size }}px;
+    line-height: 1;
+  }
+
+  {%- if section.settings.pause_on_hover -%}
+    .magic-marquee--{{ section.id }}:hover .magic-marquee__track {
+      animation-play-state: paused;
+    }
+  {%- endif -%}
+
+  @keyframes magic-marquee-{{ section.id }} {
+    from {
+      transform: translateX(
+        {% if section.settings.direction == 'right' %}-50%{% else %}0{% endif %}
+      );
+    }
+
+    to {
+      transform: translateX(
+        {% if section.settings.direction == 'right' %}0{% else %}-50%{% endif %}
+      );
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .magic-marquee--{{ section.id }} {
+      --marquee-gap: {{ section.settings.item_gap_mobile }}px;
+      padding: {{ section.settings.padding_vertical_mobile }}px 0;
+    }
+
+    .magic-marquee--{{ section.id }} .magic-marquee__item {
+      gap: {{ section.settings.icon_gap_mobile }}px;
+      font-size: {{ section.settings.text_size_mobile }}px;
+    }
+
+    .magic-marquee--{{ section.id }} .magic-marquee__icon {
+      font-size: {{ section.settings.icon_size_mobile }}px;
+    }
+
+    .magic-marquee--{{ section.id }} .magic-marquee__separator {
+      font-size: {{ section.settings.separator_size_mobile }}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .magic-marquee--{{ section.id }} .magic-marquee__track {
+      animation-play-state: paused;
+      transform: none;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Marquee bénéfices",
+  "tag": "section",
+  "class": "section-marquee-benefices",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "unit": "s",
+      "label": "Vitesse",
+      "info": "Une valeur faible donne un défilement plus rapide.",
+      "default": 22
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Sens du défilement",
+      "options": [
+        {
+          "value": "left",
+          "label": "Vers la gauche"
+        },
+        {
+          "value": "right",
+          "label": "Vers la droite"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause au survol",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Texte et icônes"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_grandstander",
+      "label": "Utiliser Grandstander",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "text_weight",
+      "label": "Épaisseur du texte",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Moyen"
+        },
+        {
+          "value": "600",
+          "label": "Semi-gras"
+        },
+        {
+          "value": "700",
+          "label": "Gras"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du texte",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du texte sur mobile",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille des icônes",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "icon_size_mobile",
+      "min": 11,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille des icônes sur mobile",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "icon_gap",
+      "min": 2,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Espace icône / texte",
+      "default": 7
+    },
+    {
+      "type": "range",
+      "id": "icon_gap_mobile",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Espace icône / texte sur mobile",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Séparateur"
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Séparateur",
+      "default": "•"
+    },
+    {
+      "type": "range",
+      "id": "separator_size",
+      "min": 10,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du séparateur",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "separator_size_mobile",
+      "min": 9,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du séparateur sur mobile",
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Espacements"
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Espace entre les bénéfices",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "item_gap_mobile",
+      "min": 12,
+      "max": 56,
+      "step": 4,
+      "unit": "px",
+      "label": "Espace entre les bénéfices sur mobile",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "min": 4,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "label": "Hauteur de la barre",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical_mobile",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Hauteur sur mobile",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#3368b8"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Séparateur",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Description d’accessibilité",
+      "default": "Avantages du Cahier de Pratique Magique"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Bénéfice",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icône ou emoji",
+          "default": "♻️"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Pages effaçables et réutilisables"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee bénéfices",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "♻️",
+            "text": "Pages effaçables et réutilisables"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "✍️",
+            "text": "Développe le contrôle du stylo"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🧠",
+            "text": "Améliore concentration et motricité"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🎨",
+            "text": "Encourage la créativité"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌱",
+            "text": "Inspiré de la méthode Montessori"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "👶",
+            "text": "Adapté aux enfants dès 3 ans"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
