@@ -9,6 +9,133 @@
  */
 {
   "sections": {
+    "methodecahier_9YaHc8": {
+      "type": "methodecahier",
+      "blocks": {
+        "benefit_CxEQUt": {
+          "type": "benefit",
+          "settings": {
+            "position": "left",
+            "emoji": "✍️",
+            "title": "Maîtrise du geste",
+            "text": "<p>Aide votre enfant à mieux tenir son stylo et à tracer avec davantage de précision.</p>"
+          }
+        },
+        "benefit_pwt9AM": {
+          "type": "benefit",
+          "settings": {
+            "position": "left",
+            "emoji": "👁️",
+            "title": "Concentration renforcée",
+            "text": "<p>Les exercices progressifs stimulent l’attention, l’observation et la coordination visuelle.</p>"
+          }
+        },
+        "benefit_rU46EC": {
+          "type": "benefit",
+          "settings": {
+            "position": "right",
+            "emoji": "🖐️",
+            "title": "Motricité fine",
+            "text": "<p>Développe la précision des mouvements grâce à des tracés ludiques adaptés aux petites mains.</p>"
+          }
+        },
+        "benefit_UFh6rw": {
+          "type": "benefit",
+          "settings": {
+            "position": "right",
+            "emoji": "😊",
+            "title": "Confiance et autonomie",
+            "text": "<p>L’enfant recommence sans crainte, progresse à son rythme et prend plaisir à apprendre seul.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_CxEQUt",
+        "benefit_pwt9AM",
+        "benefit_rU46EC",
+        "benefit_UFh6rw"
+      ],
+      "name": "Méthode Cahier Magique",
+      "settings": {
+        "heading": "La méthode du Cahier Magique",
+        "heading_tag": "h2",
+        "intro": "",
+        "image_alt": "",
+        "button_label": "",
+        "button_link": "",
+        "content_width": 1500,
+        "heading_max_width": 900,
+        "image_column_width": 380,
+        "image_column_width_tablet": 300,
+        "image_width_mobile": 420,
+        "column_gap": 60,
+        "column_gap_tablet": 30,
+        "content_spacing": 35,
+        "content_spacing_mobile": 30,
+        "mobile_group_gap": 30,
+        "image_ratio": "1 / 1",
+        "image_fit": "cover",
+        "image_position": "center center",
+        "image_radius": 16,
+        "placeholder_background": "#e7e2dc",
+        "use_grandstander": true,
+        "heading_size": 42,
+        "heading_size_tablet": 36,
+        "heading_size_mobile": 32,
+        "heading_weight": "700",
+        "heading_line_height": 110,
+        "heading_line_height_mobile": 115,
+        "heading_letter_spacing": -2,
+        "intro_max_width": 700,
+        "intro_spacing": 12,
+        "intro_size": 17,
+        "intro_size_mobile": 15,
+        "intro_line_height": 150,
+        "benefit_gap": 60,
+        "benefit_gap_mobile": 35,
+        "icon_size": 44,
+        "icon_size_mobile": 34,
+        "icon_spacing": 10,
+        "icon_spacing_mobile": 8,
+        "benefit_title_size": 20,
+        "benefit_title_size_tablet": 19,
+        "benefit_title_size_mobile": 18,
+        "benefit_title_weight": "700",
+        "benefit_title_line_height": 120,
+        "benefit_text_width": 300,
+        "benefit_text_spacing": 8,
+        "benefit_text_size": 14,
+        "benefit_text_size_tablet": 15,
+        "benefit_text_size_mobile": 13,
+        "benefit_text_line_height": 145,
+        "button_spacing": 35,
+        "button_spacing_mobile": 35,
+        "button_height": 56,
+        "button_horizontal_padding": 40,
+        "button_text_size": 16,
+        "button_text_size_mobile": 15,
+        "button_radius": 10,
+        "button_border_width": 3,
+        "button_shadow_y": 4,
+        "button_shadow_blur": 8,
+        "button_shadow_opacity": 25,
+        "button_full_width_mobile": true,
+        "padding_top": 30,
+        "padding_bottom": 35,
+        "side_padding": 40,
+        "padding_top_mobile": 25,
+        "padding_bottom_mobile": 30,
+        "side_padding_mobile": 18,
+        "background_color": "#FFFFFF",
+        "heading_color": "#18263a",
+        "text_color": "#202020",
+        "button_background": "#39a45a",
+        "button_text_color": "#ffffff",
+        "button_border_color": "#2d6f47",
+        "button_hover_background": "#2d6f47",
+        "button_hover_text_color": "#ffffff"
+      }
+    },
     "featured_product_jk3Naf": {
       "type": "featured-product",
       "blocks": {
@@ -219,9 +346,9 @@
         "card_width_desktop": 130,
         "card_width_mobile": 100,
         "heading_color": "#121212",
-        "layout_bg_color": "#FFFFFF",
+        "layout_bg_color": "#ffffff",
         "layout_border_color": "#121212",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "border_color": "#121212",
         "margin_top": 0,
         "margin_bottom": 0,
@@ -1086,6 +1213,7 @@
     }
   },
   "order": [
+    "methodecahier_9YaHc8",
     "featured_product_jk3Naf",
     "rich_text_eNac9a",
     "logoscroll_cc7kqp",
