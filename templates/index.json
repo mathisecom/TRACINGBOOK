@@ -139,7 +139,7 @@
         "icon_text_eHwXTp": {
           "type": "icon_text",
           "settings": {
-            "icon": "shopify://shop_images/Screenshot_2026-06-18_at_11.12.06_PM_df89d4.png",
+            "icon": "shopify://shop_images/Screenshot_2026-06-18_at_11.09.36_PM_syni4c.png",
             "title": "Apprentissage des nombres",
             "text": "",
             "link": "",
@@ -150,7 +150,7 @@
         "icon_text_FRigJP": {
           "type": "icon_text",
           "settings": {
-            "icon": "shopify://shop_images/Screenshot_2026-06-18_at_11.09.36_PM_syni4c.png",
+            "icon": "shopify://shop_images/Screenshot_2026-06-18_at_11.12.06_PM_df89d4.png",
             "title": "Apprentissage des formes",
             "text": "",
             "link": "",
@@ -181,6 +181,7 @@
         "row_gap_mobile": 24,
         "icon_size": 110,
         "icon_size_mobile": 80,
+        "use_grandstander": true,
         "title_size": 17,
         "title_size_mobile": 14,
         "title_weight": "700",
