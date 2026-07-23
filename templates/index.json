@@ -118,7 +118,7 @@
           "type": "heading",
           "settings": {
             "text": "+3,000 Parents Satisfaits",
-            "heading_tag": "h2",
+            "heading_tag": "h3",
             "text_color": "",
             "gradient": ""
           }
@@ -228,7 +228,7 @@
         "166442457738b23caf-2"
       ],
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "subheading": "",
         "title": "Questions Fréquentes",
         "content": "",
