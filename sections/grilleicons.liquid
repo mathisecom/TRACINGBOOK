@@ -1,7 +1,13 @@
 {% comment %}
-  Section : Grille d'icônes avec texte — version corrigée 2
-  Fichier conseillé : sections/grille-icones-texte.liquid
+  Section : Grille d'icônes avec texte — version Grandstander 3
+  Fichier conseillé : sections/grille-icones-texte-grandstander.liquid
 {% endcomment %}
+
+{% if section.settings.use_grandstander %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+{% endif %}
 
 <section
   id="icon-text-grid-{{ section.id }}"
@@ -113,6 +119,9 @@
     color: var(--itg-text-color);
     padding-top: var(--itg-padding-top);
     padding-bottom: var(--itg-padding-bottom);
+    {% if section.settings.use_grandstander %}
+      font-family: 'Grandstander', cursive;
+    {% endif %}
   }
 
   #icon-text-grid-{{ section.id }} * {
@@ -444,6 +453,13 @@
       "unit": "px",
       "label": "Taille des icônes sur mobile",
       "default": 80
+    },
+    {
+      "type": "checkbox",
+      "id": "use_grandstander",
+      "label": "Utiliser la police Grandstander",
+      "default": true,
+      "info": "S'applique à tous les textes de cette section."
     },
     {
       "type": "range",
