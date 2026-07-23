@@ -77,10 +77,10 @@
       "settings": {
         "heading": "",
         "text": "",
-        "section_background": "#FFFFFF",
+        "section_background": "#ffffff",
         "card_background": "#ffffff",
         "text_color": "#111111",
-        "accent_color": "#75AAE8",
+        "accent_color": "#75aae8",
         "content_width": 1320,
         "columns_desktop": "4",
         "columns_mobile": "2",
@@ -186,6 +186,7 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
+            "image": "shopify://shop_images/Lenova_9_2.png",
             "image_width": 150,
             "heading_size": "h3",
             "title": "Newsletter",
