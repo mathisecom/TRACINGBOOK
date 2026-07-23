@@ -133,7 +133,7 @@
         "star_empty_color": "#d9d9d9",
         "benefit_icon_background": "#fff1b8",
         "benefit_icon_color": "#f5b301",
-        "button_background": "#399E5A",
+        "button_background": "#399e5a",
         "button_text_color": "#ffffff",
         "button_border_color": "#75a9e8",
         "button_hover_background": "#3368b8",
@@ -443,7 +443,7 @@
             "icon": "none",
             "icon_width": 20,
             "title": "Informations sur la livraisons",
-            "content": "<p>Share some content to your customers about your products.</p>",
+            "content": "<p>Nos produits sont expédiés <strong>sous 24-48 heures.</strong></p><p>- Livraison standard <strong>6-10 jours</strong></p>",
             "page": ""
           }
         },
