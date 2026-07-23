@@ -629,6 +629,7 @@
       "type": "imagetextecta",
       "name": "Image texte et CTA",
       "settings": {
+        "image": "shopify://shop_images/ezgif.com-video-to-gif_480x480_480x480_1716d842-aef4-4887-9823-a7fa63db898b.webp",
         "image_alt": "",
         "eyebrow": "",
         "heading": "Développe la motricité fine",
