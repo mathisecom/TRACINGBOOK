@@ -49,7 +49,7 @@
           "settings": {
             "show_payment_button": false,
             "show_gift_card_recipient": false,
-            "atc_button_background": "",
+            "atc_button_background": "#399E5A",
             "atc_button_text_color": "",
             "payment_button_background": "",
             "payment_button_text_color": ""
@@ -97,7 +97,7 @@
         "enable_video_looping": false,
         "enable_image_zoom": false,
         "max_image_zoom_level": 3,
-        "background": "#FBF8F2",
+        "background": "#fbf8f2",
         "background_gradient": "",
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
