@@ -9,6 +9,86 @@
  */
 {
   "sections": {
+    "marqueebenefice_HNWWY3": {
+      "type": "marqueebenefice",
+      "blocks": {
+        "benefit_ATjtyz": {
+          "type": "benefit",
+          "settings": {
+            "icon": "♻️",
+            "text": "Pages effaçables et réutilisables"
+          }
+        },
+        "benefit_nAx4jD": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✍️",
+            "text": "Développe le contrôle du stylo"
+          }
+        },
+        "benefit_7FEK43": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🧠",
+            "text": "Améliore concentration et motricité"
+          }
+        },
+        "benefit_ATdYRH": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🎨",
+            "text": "Encourage la créativité"
+          }
+        },
+        "benefit_GrxH8q": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌱",
+            "text": "Inspiré de la méthode Montessori"
+          }
+        },
+        "benefit_84meKB": {
+          "type": "benefit",
+          "settings": {
+            "icon": "👶",
+            "text": "Adapté aux enfants dès 3 ans"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_ATjtyz",
+        "benefit_nAx4jD",
+        "benefit_7FEK43",
+        "benefit_ATdYRH",
+        "benefit_GrxH8q",
+        "benefit_84meKB"
+      ],
+      "name": "Marquee bénéfices",
+      "settings": {
+        "speed": 30,
+        "direction": "left",
+        "pause_on_hover": true,
+        "use_grandstander": false,
+        "text_weight": "600",
+        "text_size": 14,
+        "text_size_mobile": 13,
+        "icon_size": 18,
+        "icon_size_mobile": 15,
+        "icon_gap": 7,
+        "icon_gap_mobile": 5,
+        "separator": "•",
+        "separator_size": 16,
+        "separator_size_mobile": 13,
+        "item_gap": 36,
+        "item_gap_mobile": 24,
+        "padding_vertical": 8,
+        "padding_vertical_mobile": 8,
+        "background_color": "#75aae8",
+        "text_color": "#ffffff",
+        "separator_color": "#ffffff",
+        "aria_label": "Avantages du Cahier de Pratique Magique"
+      }
+    },
     "methodecahier_9YaHc8": {
       "type": "methodecahier",
       "blocks": {
@@ -462,45 +542,45 @@
         "padding_bottom_mobile": 32
       }
     },
-    "marqueebenefice_HNWWY3": {
+    "marqueebenefice_Hb6g9i": {
       "type": "marqueebenefice",
       "blocks": {
-        "benefit_ATjtyz": {
+        "benefit_TEtdwT": {
           "type": "benefit",
           "settings": {
             "icon": "♻️",
             "text": "Pages effaçables et réutilisables"
           }
         },
-        "benefit_nAx4jD": {
+        "benefit_kBWyJk": {
           "type": "benefit",
           "settings": {
             "icon": "✍️",
             "text": "Développe le contrôle du stylo"
           }
         },
-        "benefit_7FEK43": {
+        "benefit_ANz3XV": {
           "type": "benefit",
           "settings": {
             "icon": "🧠",
             "text": "Améliore concentration et motricité"
           }
         },
-        "benefit_ATdYRH": {
+        "benefit_Ked4Cq": {
           "type": "benefit",
           "settings": {
             "icon": "🎨",
             "text": "Encourage la créativité"
           }
         },
-        "benefit_GrxH8q": {
+        "benefit_ygdYwi": {
           "type": "benefit",
           "settings": {
             "icon": "🌱",
             "text": "Inspiré de la méthode Montessori"
           }
         },
-        "benefit_84meKB": {
+        "benefit_UxQAVN": {
           "type": "benefit",
           "settings": {
             "icon": "👶",
@@ -509,12 +589,12 @@
         }
       },
       "block_order": [
-        "benefit_ATjtyz",
-        "benefit_nAx4jD",
-        "benefit_7FEK43",
-        "benefit_ATdYRH",
-        "benefit_GrxH8q",
-        "benefit_84meKB"
+        "benefit_TEtdwT",
+        "benefit_kBWyJk",
+        "benefit_ANz3XV",
+        "benefit_Ked4Cq",
+        "benefit_ygdYwi",
+        "benefit_UxQAVN"
       ],
       "name": "Marquee bénéfices",
       "settings": {
@@ -1213,12 +1293,13 @@
     }
   },
   "order": [
+    "marqueebenefice_HNWWY3",
     "methodecahier_9YaHc8",
     "featured_product_jk3Naf",
     "rich_text_eNac9a",
     "logoscroll_cc7kqp",
     "grilleicons_yBU4wY",
-    "marqueebenefice_HNWWY3",
+    "marqueebenefice_Hb6g9i",
     "imagetextecta_FdtqzB",
     "beneficecahier_DMgWyX",
     "imagetextecta_XzTbYP",
