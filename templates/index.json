@@ -9,6 +9,139 @@
  */
 {
   "sections": {
+    "banniereaccueil_Lkf3E7": {
+      "type": "banniereaccueil",
+      "blocks": {
+        "benefit_xXKcgt": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "pencil",
+            "text": "Développe le contrôle du stylo"
+          }
+        },
+        "benefit_Yxkkmh": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "brain",
+            "text": "Stimule concentration et autonomie"
+          }
+        },
+        "benefit_cQCHcn": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "recycle",
+            "text": "Pages effaçables et réutilisables"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_xXKcgt",
+        "benefit_Yxkkmh",
+        "benefit_cQCHcn"
+      ],
+      "name": "Bannière MagiKidz",
+      "settings": {
+        "eyebrow": "Apprendre devient un jeu",
+        "heading": "Facilitez les apprentissages de votre enfant avec MagiKidz",
+        "heading_tag": "h1",
+        "text": "<p>Un cahier magique, ludique et réutilisable pour aider votre enfant à mieux tracer, écrire et progresser à son rythme.</p>",
+        "trust_text": "Paiement sécurisé • Satisfait ou remboursé 14 jours",
+        "show_reviews": true,
+        "rating": 4.5,
+        "review_text": "Excellent",
+        "review_count": "4,8/5 selon nos clients",
+        "image_alt": "",
+        "image_ratio": "4 / 3",
+        "image_fit": "contain",
+        "image_position": "center center",
+        "image_radius": 0,
+        "placeholder_background": "#f2eee7",
+        "badge_text": "64 pages réutilisables",
+        "badge_offset": 18,
+        "badge_offset_mobile": 12,
+        "badge_radius": 16,
+        "badge_text_size": 15,
+        "badge_text_size_mobile": 12,
+        "button_label": "Découvrir le Cahier Magique",
+        "button_link": "#shopify-section-template--31122358796626__featured_product_jk3Naf",
+        "open_new_tab": false,
+        "show_button_arrow": true,
+        "button_spacing": 28,
+        "button_height": 54,
+        "button_horizontal_padding": 34,
+        "button_text_size": 15,
+        "button_text_size_mobile": 14,
+        "button_radius": 12,
+        "button_border_width": 0,
+        "button_shadow_y": 4,
+        "button_shadow_blur": 8,
+        "button_shadow_opacity": 20,
+        "button_full_width_mobile": true,
+        "content_width": 1500,
+        "image_side": "left",
+        "text_column_width": 46,
+        "text_max_width": 650,
+        "vertical_alignment": "center",
+        "content_gap": 70,
+        "content_gap_tablet": 45,
+        "content_gap_mobile": 35,
+        "mobile_image_first": false,
+        "mobile_text_alignment": "left",
+        "use_grandstander": true,
+        "heading_size": 40,
+        "heading_size_tablet": 36,
+        "heading_size_mobile": 28,
+        "heading_weight": "700",
+        "heading_line_height": 110,
+        "heading_line_height_mobile": 115,
+        "heading_letter_spacing": -2,
+        "eyebrow_size": 14,
+        "eyebrow_spacing": 10,
+        "text_spacing": 20,
+        "text_size": 16,
+        "text_size_tablet": 15,
+        "text_size_mobile": 14,
+        "text_weight": "400",
+        "text_line_height": 150,
+        "text_line_height_mobile": 155,
+        "benefit_spacing": 22,
+        "benefit_gap": 12,
+        "benefit_gap_mobile": 10,
+        "benefit_icon_size": 26,
+        "benefit_icon_gap": 10,
+        "benefit_text_size": 15,
+        "benefit_text_size_mobile": 14,
+        "benefit_text_weight": "500",
+        "benefit_line_height": 140,
+        "review_spacing": 12,
+        "star_size": 16,
+        "review_text_size": 13,
+        "trust_spacing": 12,
+        "trust_text_size": 12,
+        "padding_top": 55,
+        "padding_bottom": 55,
+        "side_padding": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 35,
+        "side_padding_mobile": 16,
+        "background_color": "#f7f3ed",
+        "heading_color": "#18263a",
+        "text_color": "#202020",
+        "muted_color": "#748071",
+        "eyebrow_color": "#4c95e8",
+        "star_color": "#f5b301",
+        "star_empty_color": "#d9d9d9",
+        "benefit_icon_background": "#fff1b8",
+        "benefit_icon_color": "#f5b301",
+        "button_background": "#399E5A",
+        "button_text_color": "#ffffff",
+        "button_border_color": "#75a9e8",
+        "button_hover_background": "#3368b8",
+        "button_hover_text_color": "#ffffff",
+        "badge_background": "#3368b8",
+        "badge_text_color": "#ffffff"
+      }
+    },
     "marqueebenefice_HNWWY3": {
       "type": "marqueebenefice",
       "blocks": {
@@ -1402,6 +1535,7 @@
     }
   },
   "order": [
+    "banniereaccueil_Lkf3E7",
     "marqueebenefice_HNWWY3",
     "methodecahier_9YaHc8",
     "featured_product_jk3Naf",
