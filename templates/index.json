@@ -294,7 +294,7 @@
             "icon": "none",
             "icon_width": 20,
             "title": "Ce que contient votre Pack",
-            "content": "<p>Share some content to your customers about your products.</p>",
+            "content": "<p>Le pack comprend un cahier de <strong>64 pages</strong>, des stylos adaptés aux exercices, des accessoires de prise en main et un outil d’effacement. </p>",
             "page": ""
           }
         },
@@ -1353,7 +1353,14 @@
           "type": "item",
           "settings": {
             "title": "Que contient le pack ?",
-            "content": "<p>Le pack comprend un cahier de <strong>64 pages</strong>, des stylos adaptés aux exercices, des accessoires de prise en main et un outil d’effacement. Le contenu exact peut varier selon l’option choisie.</p>"
+            "content": "<p>Le pack comprend un cahier de <strong>64 pages</strong>, des stylos adaptés aux exercices, des accessoires de prise en main et un outil d’effacement. </p>"
+          }
+        },
+        "item_CzAVma": {
+          "type": "item",
+          "settings": {
+            "title": "Comment nettoyer et entretenir le cahier ?",
+            "content": "<p>Effacez les pages après utilisation avec l’accessoire fourni, puis rangez les stylos correctement refermés. Pour préserver le cahier, évitez les produits nettoyants agressifs et l’exposition prolongée à l’humidité.</p>"
           }
         }
       },
@@ -1361,7 +1368,8 @@
         "166442457738b23caf-0",
         "166442457738b23caf-1",
         "166442457738b23caf-2",
-        "item_ghdXQf"
+        "item_ghdXQf",
+        "item_CzAVma"
       ],
       "settings": {
         "full_width": true,
