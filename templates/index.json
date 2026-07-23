@@ -237,7 +237,7 @@
         "image_fit": "cover",
         "image_focal_point": "center center",
         "image_radius": 38,
-        "placeholder_background": "#eee9df",
+        "placeholder_background": "#FFFFFF",
         "show_decorations": true,
         "decoration_color": "#f2c94c",
         "decoration_size": 75,
