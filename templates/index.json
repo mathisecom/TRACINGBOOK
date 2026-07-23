@@ -20,8 +20,15 @@
         },
         "title_QqY9RU": {
           "type": "title",
+          "disabled": true,
           "settings": {
             "heading_tag": "h3"
+          }
+        },
+        "text_G43HBj": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Cahier de Pratique Magique Réutilisable pour Enfants</h2>"
           }
         },
         "liquid_BYJzdN": {
@@ -103,6 +110,7 @@
       "block_order": [
         "liquid_HCHJRT",
         "title_QqY9RU",
+        "text_G43HBj",
         "liquid_BYJzdN",
         "description_fLcxMc",
         "variant_picker_AtQcWa",
