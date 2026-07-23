@@ -103,13 +103,13 @@
           "settings": {
             "menu": "footer",
             "show_menu_title": true,
-            "menu_title": ""
+            "menu_title": "Informations Légales"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "title": "About",
+            "title": "Contactez-Nous",
             "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
             "enable_follow_on_shop": true
           }
