@@ -207,7 +207,7 @@
         "padding_top_mobile": 25,
         "padding_bottom_mobile": 30,
         "side_padding_mobile": 18,
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "heading_color": "#18263a",
         "text_color": "#202020",
         "button_background": "#39a45a",
@@ -967,6 +967,7 @@
         "left_label": "Notre Cahier Magique",
         "right_label": "Cahier classique",
         "vs_text": "VS",
+        "left_image": "shopify://shop_images/fee276f9-cb96-4c9d-b5f4-7c56de6356be_1.webp",
         "left_image_alt": "",
         "right_image": "shopify://shop_images/icone_4.png",
         "right_image_alt": "",
@@ -1372,7 +1373,7 @@
         "heading_gradient": "",
         "button_background": "",
         "button_text_color": "",
-        "accordion_background": "#FBF8F2",
+        "accordion_background": "#fbf8f2",
         "accordion_text_color": ""
       }
     }
