@@ -514,7 +514,7 @@
         "image_focal_point": "center center",
         "image_radius": 38,
         "placeholder_background": "#FFFFFF",
-        "show_decorations": false,
+        "show_decorations": true,
         "decoration_color": "#f2c94c",
         "decoration_size": 75,
         "decoration_size_mobile": 55,
