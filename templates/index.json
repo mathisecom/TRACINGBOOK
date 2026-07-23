@@ -333,7 +333,7 @@
       "settings": {
         "full_width": true,
         "product": "cahier-de-pratique-magique-reutilisable-pour-enfants",
-        "desktop_media_width": 55,
+        "desktop_media_width": 45,
         "desktop_media_layout": "carousel_thumbnails_left",
         "mobile_media_size": "contained",
         "mobile_carousel_control": "thumbnails",
@@ -831,6 +831,7 @@
       "type": "imagetextecta",
       "name": "Image texte et CTA",
       "settings": {
+        "image": "shopify://shop_images/52032b5b-8f4e-4d1f-ab57-38b9a4461fa8.png",
         "image_alt": "",
         "eyebrow": "",
         "heading": "Apprend en toute autonomie",
