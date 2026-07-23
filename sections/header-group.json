@@ -38,7 +38,7 @@
         "autoplay": false,
         "cycle_speed": 6,
         "text_size": "text-xxs",
-        "navigation_mode": "scrolling",
+        "navigation_mode": "arrows",
         "scrolling_speed": 10,
         "background": "#75aae8",
         "background_gradient": "",
