@@ -1,0 +1,1575 @@
+{%- liquid
+  assign image_alt = section.settings.image_alt | strip
+
+  if image_alt == blank and section.settings.image != blank
+    assign image_alt = section.settings.image.alt
+  endif
+
+  assign full_stars = section.settings.rating | floor
+  assign decimal_part = section.settings.rating | minus: full_stars
+  assign next_star = full_stars | plus: 1
+-%}
+
+{%- if section.settings.use_grandstander -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+{%- endif -%}
+
+<section class="magikidz-hero magikidz-hero--{{ section.id }}{% if section.settings.image_side == 'left' %} magikidz-hero--image-left{% endif %}">
+  <div class="magikidz-hero__container">
+    <div class="magikidz-hero__grid">
+      <div class="magikidz-hero__content">
+
+        {%- if section.settings.show_reviews -%}
+          <div class="magikidz-hero__reviews">
+            <div
+              class="magikidz-hero__stars"
+              role="img"
+              aria-label="{{ section.settings.rating }} étoiles sur 5"
+            >
+              {%- for i in (1..5) -%}
+                <span class="magikidz-hero__star{% if i <= full_stars %} is-filled{% elsif decimal_part >= 0.5 and i == next_star %} is-half{% endif %}">
+                  ★
+                </span>
+              {%- endfor -%}
+            </div>
+
+            <div class="magikidz-hero__review-copy">
+              {%- if section.settings.review_text != blank -%}
+                <span class="magikidz-hero__review-text">
+                  {{ section.settings.review_text | escape }}
+                </span>
+              {%- endif -%}
+
+              {%- if section.settings.review_count != blank -%}
+                <span class="magikidz-hero__review-count">
+                  {{ section.settings.review_count | escape }}
+                </span>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="magikidz-hero__eyebrow">
+            {{ section.settings.eyebrow | escape }}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="magikidz-hero__heading">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="magikidz-hero__text rte">
+            {{ section.settings.text }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="magikidz-hero__benefits" role="list">
+            {%- for block in section.blocks -%}
+              <li class="magikidz-hero__benefit" {{ block.shopify_attributes }}>
+                <span class="magikidz-hero__benefit-icon" aria-hidden="true">
+                  {%- case block.settings.icon_style -%}
+                    {%- when 'check' -%}
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12.5L9.2 16.7L19 7"
+                          stroke="currentColor"
+                          stroke-width="2.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                      </svg>
+                    {%- when 'sparkle' -%}
+                      ✨
+                    {%- when 'pencil' -%}
+                      ✍️
+                    {%- when 'brain' -%}
+                      🧠
+                    {%- when 'recycle' -%}
+                      ♻️
+                    {%- else -%}
+                      ✓
+                  {%- endcase -%}
+                </span>
+
+                <span class="magikidz-hero__benefit-text">
+                  {{ block.settings.text | escape }}
+                </span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <div class="magikidz-hero__cta-wrap">
+            <a
+              class="magikidz-hero__button"
+              {% if section.settings.button_link != blank %}
+                href="{{ section.settings.button_link }}"
+              {% else %}
+                role="link"
+                aria-disabled="true"
+              {% endif %}
+              {% if section.settings.open_new_tab and section.settings.button_link != blank %}
+                target="_blank"
+                rel="noopener noreferrer"
+              {% endif %}
+            >
+              {{ section.settings.button_label | escape }}
+
+              {%- if section.settings.show_button_arrow -%}
+                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                  <path d="M4 10H15M11 6L15 10L11 14"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"/>
+                </svg>
+              {%- endif -%}
+            </a>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.trust_text != blank -%}
+          <p class="magikidz-hero__trust">
+            {{ section.settings.trust_text | escape }}
+          </p>
+        {%- endif -%}
+      </div>
+
+      <div class="magikidz-hero__visual">
+        <div class="magikidz-hero__image-wrap">
+          {%- if section.settings.image != blank -%}
+            <img
+              class="magikidz-hero__image"
+              src="{{ section.settings.image | image_url: width: 1600 }}"
+              srcset="
+                {{ section.settings.image | image_url: width: 480 }} 480w,
+                {{ section.settings.image | image_url: width: 750 }} 750w,
+                {{ section.settings.image | image_url: width: 1000 }} 1000w,
+                {{ section.settings.image | image_url: width: 1300 }} 1300w,
+                {{ section.settings.image | image_url: width: 1600 }} 1600w
+              "
+              sizes="(max-width: 749px) calc(100vw - 32px), 50vw"
+              width="{{ section.settings.image.width }}"
+              height="{{ section.settings.image.height }}"
+              alt="{{ image_alt | escape }}"
+              loading="eager"
+              fetchpriority="high"
+            >
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'magikidz-hero__placeholder' }}
+          {%- endif -%}
+
+          {%- if section.settings.badge_text != blank -%}
+            <div class="magikidz-hero__badge">
+              {{ section.settings.badge_text | escape }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .magikidz-hero--{{ section.id }} {
+    --section-bg: {{ section.settings.background_color }};
+    --heading-color: {{ section.settings.heading_color }};
+    --text-color: {{ section.settings.text_color }};
+    --muted-color: {{ section.settings.muted_color }};
+    --star-color: {{ section.settings.star_color }};
+    --benefit-icon-bg: {{ section.settings.benefit_icon_background }};
+    --benefit-icon-color: {{ section.settings.benefit_icon_color }};
+    --button-bg: {{ section.settings.button_background }};
+    --button-color: {{ section.settings.button_text_color }};
+    --button-border: {{ section.settings.button_border_color }};
+    --button-hover-bg: {{ section.settings.button_hover_background }};
+    --button-hover-color: {{ section.settings.button_hover_text_color }};
+    --badge-bg: {{ section.settings.badge_background }};
+    --badge-color: {{ section.settings.badge_text_color }};
+    --content-gap: {{ section.settings.content_gap }}px;
+    --image-radius: {{ section.settings.image_radius }}px;
+
+    width: 100%;
+    overflow: hidden;
+    background: var(--section-bg);
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .magikidz-hero--{{ section.id }} *,
+  .magikidz-hero--{{ section.id }} *::before,
+  .magikidz-hero--{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  {%- if section.settings.use_grandstander -%}
+    .magikidz-hero--{{ section.id }} .magikidz-hero__heading,
+    .magikidz-hero--{{ section.id }} .magikidz-hero__button,
+    .magikidz-hero--{{ section.id }} .magikidz-hero__eyebrow {
+      font-family: "Grandstander", sans-serif;
+    }
+  {%- endif -%}
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__container {
+    width: min(
+      calc(100% - ({{ section.settings.side_padding }}px * 2)),
+      {{ section.settings.content_width }}px
+    );
+    margin: 0 auto;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__grid {
+    display: grid;
+    grid-template-columns:
+      minmax(0, {{ section.settings.text_column_width }}%)
+      minmax(0, 1fr);
+    gap: var(--content-gap);
+    align-items: {{ section.settings.vertical_alignment }};
+  }
+
+  .magikidz-hero--{{ section.id }}.magikidz-hero--image-left .magikidz-hero__content {
+    order: 2;
+  }
+
+  .magikidz-hero--{{ section.id }}.magikidz-hero--image-left .magikidz-hero__visual {
+    order: 1;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__content {
+    max-width: {{ section.settings.text_max_width }}px;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__reviews {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: {{ section.settings.review_spacing }}px;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__stars {
+    display: inline-flex;
+    gap: 2px;
+    line-height: 1;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__star {
+    position: relative;
+    display: inline-block;
+    color: {{ section.settings.star_empty_color }};
+    font-size: {{ section.settings.star_size }}px;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__star.is-filled {
+    color: var(--star-color);
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__star.is-half {
+    color: {{ section.settings.star_empty_color }};
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__star.is-half::before {
+    position: absolute;
+    inset: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--star-color);
+    content: "★";
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__review-copy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted-color);
+    font-size: {{ section.settings.review_text_size }}px;
+    line-height: 1.3;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__review-count::before {
+    content: "•";
+    margin-right: 6px;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__eyebrow {
+    margin: 0 0 {{ section.settings.eyebrow_spacing }}px;
+    color: {{ section.settings.eyebrow_color }};
+    font-size: {{ section.settings.eyebrow_size }}px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__heading {
+    margin: 0;
+    color: var(--heading-color);
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: {{ section.settings.heading_weight }};
+    line-height: {{ section.settings.heading_line_height | divided_by: 100.0 }};
+    letter-spacing: {{ section.settings.heading_letter_spacing | divided_by: 10.0 }}px;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__text {
+    margin-top: {{ section.settings.text_spacing }}px;
+    color: var(--text-color);
+    font-size: {{ section.settings.text_size }}px;
+    font-weight: {{ section.settings.text_weight }};
+    line-height: {{ section.settings.text_line_height | divided_by: 100.0 }};
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__text > :first-child {
+    margin-top: 0;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__text > :last-child {
+    margin-bottom: 0;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__text strong {
+    color: var(--heading-color);
+    font-weight: 700;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__benefits {
+    display: grid;
+    gap: {{ section.settings.benefit_gap }}px;
+    margin: {{ section.settings.benefit_spacing }}px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: {{ section.settings.benefit_icon_gap }}px;
+    color: var(--text-color);
+    font-size: {{ section.settings.benefit_text_size }}px;
+    font-weight: {{ section.settings.benefit_text_weight }};
+    line-height: {{ section.settings.benefit_line_height | divided_by: 100.0 }};
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__benefit-icon {
+    display: grid;
+    width: {{ section.settings.benefit_icon_size }}px;
+    height: {{ section.settings.benefit_icon_size }}px;
+    flex: 0 0 {{ section.settings.benefit_icon_size }}px;
+    place-items: center;
+    color: var(--benefit-icon-color);
+    background: var(--benefit-icon-bg);
+    border-radius: 50%;
+    font-size: calc({{ section.settings.benefit_icon_size }}px * 0.58);
+    line-height: 1;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__benefit-icon svg {
+    width: 62%;
+    height: 62%;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__cta-wrap {
+    margin-top: {{ section.settings.button_spacing }}px;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__button {
+    display: inline-flex;
+    min-height: {{ section.settings.button_height }}px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px {{ section.settings.button_horizontal_padding }}px;
+    color: var(--button-color);
+    background: var(--button-bg);
+    border: {{ section.settings.button_border_width }}px solid var(--button-border);
+    border-radius: {{ section.settings.button_radius }}px;
+    box-shadow:
+      0 {{ section.settings.button_shadow_y }}px
+      {{ section.settings.button_shadow_blur }}px
+      rgba(0, 0, 0, {{ section.settings.button_shadow_opacity | divided_by: 100.0 }});
+    font-size: {{ section.settings.button_text_size }}px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    transition:
+      transform 180ms ease,
+      color 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__button:hover {
+    color: var(--button-hover-color);
+    background: var(--button-hover-bg);
+    transform: translateY(-2px);
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__button[aria-disabled="true"] {
+    cursor: default;
+    opacity: 0.65;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__trust {
+    margin: {{ section.settings.trust_spacing }}px 0 0;
+    color: var(--muted-color);
+    font-size: {{ section.settings.trust_text_size }}px;
+    line-height: 1.4;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__image-wrap {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: var(--image-radius);
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__image,
+  .magikidz-hero--{{ section.id }} .magikidz-hero__placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: {{ section.settings.image_ratio }};
+    object-fit: {{ section.settings.image_fit }};
+    object-position: {{ section.settings.image_position }};
+    background: {{ section.settings.placeholder_background }};
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__placeholder {
+    padding: 50px;
+  }
+
+  .magikidz-hero--{{ section.id }} .magikidz-hero__badge {
+    position: absolute;
+    top: {{ section.settings.badge_offset }}px;
+    right: {{ section.settings.badge_offset }}px;
+    max-width: 180px;
+    padding: 10px 16px;
+    color: var(--badge-color);
+    background: var(--badge-bg);
+    border-radius: {{ section.settings.badge_radius }}px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+    font-size: {{ section.settings.badge_text_size }}px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 989px) {
+    .magikidz-hero--{{ section.id }} {
+      --content-gap: {{ section.settings.content_gap_tablet }}px;
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__heading {
+      font-size: {{ section.settings.heading_size_tablet }}px;
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__text {
+      font-size: {{ section.settings.text_size_tablet }}px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .magikidz-hero--{{ section.id }} {
+      --content-gap: {{ section.settings.content_gap_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__container {
+      width: min(
+        calc(100% - ({{ section.settings.side_padding_mobile }}px * 2)),
+        {{ section.settings.content_width }}px
+      );
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__content,
+    .magikidz-hero--{{ section.id }} .magikidz-hero__visual {
+      order: initial;
+    }
+
+    {%- if section.settings.mobile_image_first -%}
+      .magikidz-hero--{{ section.id }} .magikidz-hero__visual {
+        order: 1;
+      }
+
+      .magikidz-hero--{{ section.id }} .magikidz-hero__content {
+        order: 2;
+      }
+    {%- else -%}
+      .magikidz-hero--{{ section.id }} .magikidz-hero__content {
+        order: 1;
+      }
+
+      .magikidz-hero--{{ section.id }} .magikidz-hero__visual {
+        order: 2;
+      }
+    {%- endif -%}
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__content {
+      max-width: 100%;
+      text-align: {{ section.settings.mobile_text_alignment }};
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__reviews {
+      justify-content:
+        {% if section.settings.mobile_text_alignment == 'center' %}
+          center
+        {% elsif section.settings.mobile_text_alignment == 'right' %}
+          flex-end
+        {% else %}
+          flex-start
+        {% endif %};
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__heading {
+      font-size: {{ section.settings.heading_size_mobile }}px;
+      line-height: {{ section.settings.heading_line_height_mobile | divided_by: 100.0 }};
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__text {
+      font-size: {{ section.settings.text_size_mobile }}px;
+      line-height: {{ section.settings.text_line_height_mobile | divided_by: 100.0 }};
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__benefits {
+      gap: {{ section.settings.benefit_gap_mobile }}px;
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__benefit {
+      justify-content:
+        {% if section.settings.mobile_text_alignment == 'center' %}
+          center
+        {% elsif section.settings.mobile_text_alignment == 'right' %}
+          flex-end
+        {% else %}
+          flex-start
+        {% endif %};
+      font-size: {{ section.settings.benefit_text_size_mobile }}px;
+      text-align: left;
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__button {
+      width: {% if section.settings.button_full_width_mobile %}100%{% else %}auto{% endif %};
+      font-size: {{ section.settings.button_text_size_mobile }}px;
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__badge {
+      top: {{ section.settings.badge_offset_mobile }}px;
+      right: {{ section.settings.badge_offset_mobile }}px;
+      max-width: 145px;
+      padding: 8px 12px;
+      font-size: {{ section.settings.badge_text_size_mobile }}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .magikidz-hero--{{ section.id }} .magikidz-hero__button {
+      transition: none;
+    }
+
+    .magikidz-hero--{{ section.id }} .magikidz-hero__button:hover {
+      transform: none;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Bannière MagiKidz",
+  "tag": "section",
+  "class": "section-banniere-magikidz",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu principal"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Petit titre",
+      "default": "Apprendre devient un jeu"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Facilitez les apprentissages de votre enfant avec MagiKidz"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Balise du titre",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Paragraphe",
+      "default": "<p>Un cahier magique, ludique et réutilisable pour aider votre enfant à mieux tracer, écrire et progresser à son rythme.</p>"
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "label": "Texte sous le bouton",
+      "default": "Paiement sécurisé • Satisfait ou remboursé 14 jours"
+    },
+
+    {
+      "type": "header",
+      "content": "Avis clients"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Afficher les avis",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "rating",
+      "min": 1,
+      "max": 5,
+      "step": 0.5,
+      "label": "Note",
+      "default": 4.5
+    },
+    {
+      "type": "text",
+      "id": "review_text",
+      "label": "Texte des avis",
+      "default": "Excellent"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Nombre d’avis",
+      "default": "4,8/5 selon nos clients"
+    },
+
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image de la bannière"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Texte alternatif"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Format de l’image",
+      "options": [
+        { "value": "1 / 1", "label": "Carré" },
+        { "value": "4 / 3", "label": "4:3" },
+        { "value": "3 / 2", "label": "3:2" },
+        { "value": "16 / 10", "label": "16:10" }
+      ],
+      "default": "4 / 3"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Ajustement de l’image",
+      "options": [
+        { "value": "cover", "label": "Recadrer pour remplir" },
+        { "value": "contain", "label": "Afficher l’image entière" }
+      ],
+      "default": "contain"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Position dans le cadre",
+      "options": [
+        { "value": "center center", "label": "Centre" },
+        { "value": "center top", "label": "Haut" },
+        { "value": "center bottom", "label": "Bas" },
+        { "value": "left center", "label": "Gauche" },
+        { "value": "right center", "label": "Droite" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi de l’image",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "placeholder_background",
+      "label": "Fond de démonstration",
+      "default": "#f2eee7"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge sur l’image",
+      "default": "64 pages réutilisables"
+    },
+    {
+      "type": "range",
+      "id": "badge_offset",
+      "min": 8,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Décalage du badge",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "badge_offset_mobile",
+      "min": 6,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Décalage du badge sur mobile",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "badge_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi du badge",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "badge_text_size",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du badge",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "badge_text_size_mobile",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du badge sur mobile",
+      "default": 12
+    },
+
+    {
+      "type": "header",
+      "content": "Bouton CTA"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Découvrir le Cahier Magique"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "label": "Ouvrir dans un nouvel onglet",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_arrow",
+      "label": "Afficher la flèche",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "button_spacing",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace avant le bouton",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "button_height",
+      "min": 42,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Hauteur minimale",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "button_horizontal_padding",
+      "min": 18,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge horizontale",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "button_text_size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du texte",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_text_size_mobile",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Texte sur mobile",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi du bouton",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Bordure du bouton",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_shadow_y",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Décalage de l’ombre",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "button_shadow_blur",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Flou de l’ombre",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "button_shadow_opacity",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité de l’ombre",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "button_full_width_mobile",
+      "label": "Bouton pleine largeur sur mobile",
+      "default": true
+    },
+
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 1000,
+      "max": 1900,
+      "step": 50,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 1500
+    },
+    {
+      "type": "select",
+      "id": "image_side",
+      "label": "Position de l’image sur ordinateur",
+      "options": [
+        { "value": "right", "label": "À droite" },
+        { "value": "left", "label": "À gauche" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "text_column_width",
+      "min": 35,
+      "max": 60,
+      "step": 1,
+      "unit": "%",
+      "label": "Largeur de la colonne texte",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "text_max_width",
+      "min": 420,
+      "max": 850,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur maximale du texte",
+      "default": 650
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Alignement vertical",
+      "options": [
+        { "value": "start", "label": "En haut" },
+        { "value": "center", "label": "Au centre" },
+        { "value": "end", "label": "En bas" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "min": 20,
+      "max": 140,
+      "step": 5,
+      "unit": "px",
+      "label": "Espace texte / image",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "content_gap_tablet",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Espace sur tablette",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "content_gap_mobile",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Espace sur mobile",
+      "default": 35
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_image_first",
+      "label": "Afficher l’image avant le texte sur mobile",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_alignment",
+      "label": "Alignement du texte sur mobile",
+      "options": [
+        { "value": "left", "label": "À gauche" },
+        { "value": "center", "label": "Centré" },
+        { "value": "right", "label": "À droite" }
+      ],
+      "default": "left"
+    },
+
+    {
+      "type": "header",
+      "content": "Typographie"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_grandstander",
+      "label": "Utiliser Grandstander",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 34,
+      "max": 82,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille du titre",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "heading_size_tablet",
+      "min": 30,
+      "max": 62,
+      "step": 2,
+      "unit": "px",
+      "label": "Titre sur tablette",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 28,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Titre sur mobile",
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Épaisseur du titre",
+      "options": [
+        { "value": "500", "label": "Moyen" },
+        { "value": "600", "label": "Semi-gras" },
+        { "value": "700", "label": "Gras" },
+        { "value": "800", "label": "Très gras" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "heading_line_height",
+      "min": 90,
+      "max": 150,
+      "step": 5,
+      "unit": "%",
+      "label": "Interligne du titre",
+      "default": 110
+    },
+    {
+      "type": "range",
+      "id": "heading_line_height_mobile",
+      "min": 90,
+      "max": 150,
+      "step": 5,
+      "unit": "%",
+      "label": "Interligne sur mobile",
+      "default": 115
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "min": -10,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Espacement des lettres",
+      "default": -2
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du petit titre",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_spacing",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace sous le petit titre",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "text_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace avant le paragraphe",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du paragraphe",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "text_size_tablet",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Paragraphe sur tablette",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Paragraphe sur mobile",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "text_weight",
+      "label": "Épaisseur du paragraphe",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Moyen" },
+        { "value": "600", "label": "Semi-gras" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "range",
+      "id": "text_line_height",
+      "min": 120,
+      "max": 200,
+      "step": 5,
+      "unit": "%",
+      "label": "Interligne du paragraphe",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "text_line_height_mobile",
+      "min": 120,
+      "max": 200,
+      "step": 5,
+      "unit": "%",
+      "label": "Interligne sur mobile",
+      "default": 155
+    },
+
+    {
+      "type": "header",
+      "content": "Bénéfices"
+    },
+    {
+      "type": "range",
+      "id": "benefit_spacing",
+      "min": 12,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace avant les bénéfices",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "benefit_gap",
+      "min": 6,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace entre les bénéfices",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "benefit_gap_mobile",
+      "min": 6,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace sur mobile",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "benefit_icon_size",
+      "min": 18,
+      "max": 38,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille des icônes",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "benefit_icon_gap",
+      "min": 6,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace icône / texte",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "benefit_text_size",
+      "min": 13,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille des bénéfices",
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "benefit_text_size_mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Bénéfices sur mobile",
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "benefit_text_weight",
+      "label": "Épaisseur des bénéfices",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Moyen" },
+        { "value": "600", "label": "Semi-gras" }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "range",
+      "id": "benefit_line_height",
+      "min": 110,
+      "max": 180,
+      "step": 5,
+      "unit": "%",
+      "label": "Interligne des bénéfices",
+      "default": 140
+    },
+
+    {
+      "type": "header",
+      "content": "Avis et texte de confiance"
+    },
+    {
+      "type": "range",
+      "id": "review_spacing",
+      "min": 6,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace sous les avis",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "star_size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille des étoiles",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "review_text_size",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du texte des avis",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "trust_spacing",
+      "min": 8,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace avant le texte de confiance",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "trust_text_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du texte de confiance",
+      "default": 13
+    },
+
+    {
+      "type": "header",
+      "content": "Espacements de la section"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge supérieure",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge inférieure",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "side_padding",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Marges latérales",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge supérieure sur mobile",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge inférieure sur mobile",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "side_padding_mobile",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Marges latérales sur mobile",
+      "default": 16
+    },
+
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond de la section",
+      "default": "#f7f3ed"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Titre",
+      "default": "#18263a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte",
+      "default": "#202020"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Texte secondaire",
+      "default": "#748071"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Petit titre",
+      "default": "#4c95e8"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Étoiles pleines",
+      "default": "#f5b301"
+    },
+    {
+      "type": "color",
+      "id": "star_empty_color",
+      "label": "Étoiles vides",
+      "default": "#d9d9d9"
+    },
+    {
+      "type": "color",
+      "id": "benefit_icon_background",
+      "label": "Fond des icônes",
+      "default": "#fff1b8"
+    },
+    {
+      "type": "color",
+      "id": "benefit_icon_color",
+      "label": "Couleur des icônes",
+      "default": "#f5b301"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Fond du bouton",
+      "default": "#75a9e8"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Texte du bouton",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Bordure du bouton",
+      "default": "#75a9e8"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Fond du bouton au survol",
+      "default": "#3368b8"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Texte du bouton au survol",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Fond du badge",
+      "default": "#3368b8"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Texte du badge",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Bénéfice",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_style",
+          "label": "Icône",
+          "options": [
+            { "value": "check", "label": "Coche" },
+            { "value": "sparkle", "label": "Étincelle" },
+            { "value": "pencil", "label": "Écriture" },
+            { "value": "brain", "label": "Concentration" },
+            { "value": "recycle", "label": "Réutilisable" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Développe la motricité fine"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bannière MagiKidz",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "pencil",
+            "text": "Développe le contrôle du stylo"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "brain",
+            "text": "Stimule concentration et autonomie"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "recycle",
+            "text": "Pages effaçables et réutilisables"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
