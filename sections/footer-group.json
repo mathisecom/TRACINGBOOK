@@ -205,7 +205,7 @@
           "type": "text",
           "settings": {
             "title": "Contactez-Nous",
-            "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
+            "content": "<p><strong>Adresse</strong> :  2 Rue Nicephore Niepce 93420</p><p><strong>Horaires d'assistance </strong>:<br/>Du lundi au vendredi : de 9h00 à 19h00</p><p><strong>E-mail :</strong> contact.magikidz@gmail.com</p>",
             "enable_follow_on_shop": true
           }
         }
