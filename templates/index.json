@@ -229,6 +229,86 @@
         "padding_bottom_mobile": 32
       }
     },
+    "marqueebenefice_HNWWY3": {
+      "type": "marqueebenefice",
+      "blocks": {
+        "benefit_ATjtyz": {
+          "type": "benefit",
+          "settings": {
+            "icon": "♻️",
+            "text": "Pages effaçables et réutilisables"
+          }
+        },
+        "benefit_nAx4jD": {
+          "type": "benefit",
+          "settings": {
+            "icon": "✍️",
+            "text": "Développe le contrôle du stylo"
+          }
+        },
+        "benefit_7FEK43": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🧠",
+            "text": "Améliore concentration et motricité"
+          }
+        },
+        "benefit_ATdYRH": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🎨",
+            "text": "Encourage la créativité"
+          }
+        },
+        "benefit_GrxH8q": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌱",
+            "text": "Inspiré de la méthode Montessori"
+          }
+        },
+        "benefit_84meKB": {
+          "type": "benefit",
+          "settings": {
+            "icon": "👶",
+            "text": "Adapté aux enfants dès 3 ans"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_ATjtyz",
+        "benefit_nAx4jD",
+        "benefit_7FEK43",
+        "benefit_ATdYRH",
+        "benefit_GrxH8q",
+        "benefit_84meKB"
+      ],
+      "name": "Marquee bénéfices",
+      "settings": {
+        "speed": 30,
+        "direction": "left",
+        "pause_on_hover": true,
+        "use_grandstander": false,
+        "text_weight": "600",
+        "text_size": 17,
+        "text_size_mobile": 14,
+        "icon_size": 18,
+        "icon_size_mobile": 15,
+        "icon_gap": 7,
+        "icon_gap_mobile": 5,
+        "separator": "•",
+        "separator_size": 16,
+        "separator_size_mobile": 13,
+        "item_gap": 36,
+        "item_gap_mobile": 24,
+        "padding_vertical": 8,
+        "padding_vertical_mobile": 8,
+        "background_color": "#75AAE8",
+        "text_color": "#ffffff",
+        "separator_color": "#ffffff",
+        "aria_label": "Avantages du Cahier de Pratique Magique"
+      }
+    },
     "imagetextecta_FdtqzB": {
       "type": "imagetextecta",
       "name": "Image texte et CTA",
@@ -902,6 +982,7 @@
   "order": [
     "featured_product_jk3Naf",
     "grilleicons_yBU4wY",
+    "marqueebenefice_HNWWY3",
     "imagetextecta_FdtqzB",
     "beneficecahier_DMgWyX",
     "imagetextecta_XzTbYP",
