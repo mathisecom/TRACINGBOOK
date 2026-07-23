@@ -18,12 +18,6 @@
             "heading_tag": "h3"
           }
         },
-        "price_CVzqmF": {
-          "type": "price",
-          "settings": {
-            "show_taxes_notice": false
-          }
-        },
         "description_fLcxMc": {
           "type": "description",
           "disabled": true,
@@ -43,10 +37,6 @@
             "variant_image_options": "",
             "size_chart_page": ""
           }
-        },
-        "quantity_selector_cd8LYX": {
-          "type": "quantity_selector",
-          "settings": {}
         },
         "buy_buttons_kzNnrr": {
           "type": "buy_buttons",
@@ -82,10 +72,8 @@
       },
       "block_order": [
         "title_QqY9RU",
-        "price_CVzqmF",
         "description_fLcxMc",
         "variant_picker_AtQcWa",
-        "quantity_selector_cd8LYX",
         "buy_buttons_kzNnrr",
         "collapsible_text_7zqnBc",
         "collapsible_text_hhUHBV"
@@ -102,7 +90,7 @@
         "enable_video_looping": false,
         "enable_image_zoom": false,
         "max_image_zoom_level": 3,
-        "background": "",
+        "background": "#FBF8F2",
         "background_gradient": "",
         "text_color": "",
         "input_background": "rgba(0,0,0,0)",
