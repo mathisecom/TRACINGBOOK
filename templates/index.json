@@ -208,6 +208,128 @@
         "padding_bottom_mobile": 32
       }
     },
+    "beneficecahier_DMgWyX": {
+      "type": "beneficecahier",
+      "blocks": {
+        "benefit_w6QBwV": {
+          "type": "benefit",
+          "settings": {
+            "title": "Développe le geste d’écriture",
+            "text": "<p>Grâce à des exercices progressifs inspirés de la pédagogie Montessori, l’enfant améliore le contrôle du crayon, sa précision et sa motricité fine dès 3 ans.</p>",
+            "show_badge": true,
+            "rotation": -1,
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "benefit_PjyALr": {
+          "type": "benefit",
+          "settings": {
+            "title": "Apprendre devient un jeu",
+            "text": "<p>Son format interactif transforme l’entraînement quotidien en activité ludique. L’enfant trace, recommence et gagne en autonomie sans se décourager.</p>",
+            "show_badge": true,
+            "rotation": 1,
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "benefit_zTE3rF": {
+          "type": "benefit",
+          "settings": {
+            "title": "Réutilisable, durable et sûr",
+            "text": "<p>Les exercices peuvent être refaits encore et encore, ce qui limite le gaspillage de papier. Le cahier est conçu avec des matériaux adaptés aux enfants et sans substances préoccupantes.</p>",
+            "show_badge": true,
+            "rotation": -0.5,
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_w6QBwV",
+        "benefit_PjyALr",
+        "benefit_zTE3rF"
+      ],
+      "name": "Bénéfices cahier",
+      "settings": {
+        "heading": "Pourquoi ce cahier magique fait toute la différence",
+        "heading_tag": "h2",
+        "intro": "",
+        "anchor_id": "",
+        "content_width": 1500,
+        "columns_desktop": "3",
+        "columns_tablet": "2",
+        "columns_mobile": "1",
+        "grid_gap": 40,
+        "grid_gap_mobile": 40,
+        "cards_margin_top": 85,
+        "cards_margin_top_mobile": 55,
+        "text_alignment": "center",
+        "card_alignment": "center",
+        "padding_top": 55,
+        "padding_bottom": 70,
+        "side_padding": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 45,
+        "side_padding_mobile": 18,
+        "font_mode": "all",
+        "heading_max_width": 1000,
+        "heading_size": 32,
+        "heading_size_mobile": 24,
+        "heading_weight": "700",
+        "heading_line_height": 115,
+        "heading_line_height_mobile": 115,
+        "heading_letter_spacing": -2,
+        "intro_max_width": 800,
+        "intro_margin_top": 15,
+        "intro_size": 18,
+        "intro_size_mobile": 16,
+        "intro_line_height": 150,
+        "card_min_height": 260,
+        "card_min_height_mobile": 230,
+        "card_padding_x": 45,
+        "card_padding_y": 40,
+        "card_padding_x_mobile": 25,
+        "card_padding_y_mobile": 30,
+        "card_radius": 28,
+        "card_border_width": 2,
+        "remove_rotation_mobile": true,
+        "enable_hover": true,
+        "hover_lift": 5,
+        "shadow_x": -10,
+        "shadow_y": 0,
+        "shadow_blur": 0,
+        "shadow_spread": -10,
+        "shadow_opacity": 0,
+        "badge_size": 50,
+        "badge_size_mobile": 46,
+        "check_size": 55,
+        "badge_border_width": 0,
+        "card_title_size": 20,
+        "card_title_size_mobile": 18,
+        "card_title_weight": "700",
+        "card_title_line_height": 120,
+        "text_margin_top": 18,
+        "card_text_size": 14,
+        "card_text_size_mobile": 13,
+        "card_text_weight": "400",
+        "card_text_line_height": 155,
+        "link_margin_top": 18,
+        "link_size": 16,
+        "background_color": "#ffffff",
+        "heading_color": "#292929",
+        "intro_color": "#5b5b5b",
+        "card_background": "#ffffff",
+        "card_border_color": "#eee8dc",
+        "card_title_color": "#292929",
+        "card_text_color": "#555555",
+        "badge_background": "#19c463",
+        "badge_color": "#ffffff",
+        "badge_border_color": "#ffffff",
+        "shadow_color": "#8f887d",
+        "link_color": "#292929"
+      }
+    },
     "rich_text_q3FNqd": {
       "type": "rich-text",
       "blocks": {
@@ -350,6 +472,7 @@
   "order": [
     "featured_product_jk3Naf",
     "grilleicons_yBU4wY",
+    "beneficecahier_DMgWyX",
     "rich_text_q3FNqd",
     "testimonials_PRrRef",
     "faq"
