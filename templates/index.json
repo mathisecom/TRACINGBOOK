@@ -15,7 +15,7 @@
         "title_QqY9RU": {
           "type": "title",
           "settings": {
-            "heading_tag": "h2"
+            "heading_tag": "h3"
           }
         },
         "price_CVzqmF": {
@@ -51,8 +51,8 @@
         "buy_buttons_kzNnrr": {
           "type": "buy_buttons",
           "settings": {
-            "show_payment_button": true,
-            "show_gift_card_recipient": true,
+            "show_payment_button": false,
+            "show_gift_card_recipient": false,
             "atc_button_background": "",
             "atc_button_text_color": "",
             "payment_button_background": "",
@@ -93,7 +93,7 @@
       "name": "Featured product",
       "settings": {
         "full_width": true,
-        "product": "",
+        "product": "cahier-de-pratique-magique-reutilisable-pour-enfants",
         "desktop_media_width": 55,
         "desktop_media_layout": "carousel_thumbnails_left",
         "mobile_media_size": "contained",
